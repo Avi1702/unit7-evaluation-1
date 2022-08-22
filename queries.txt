@@ -1,0 +1,36 @@
+// created a collect by file name "user_data"
+command - db.createCollection('user_data')
+
+// inserted the data in the collection user_Data
+command - db.user_data.insertMany([Data which you want to insert])
+
+// to see the rows
+command - db.user_data.find()
+
+
+// All users whose gender is male
+command : db.user_data.find({gender:"Male"})
+
+// All users whose id is even
+command : db.user_data.find({age:{$mod:[2,0]}})
+
+// Users who currently live in Japan
+command : db.user_data.find({relocate_to:"japan"})
+
+//Users who are female and live in India
+command : db.user_data.find({gender:"Female",native:"India"})
+
+//Users who are more than 25 years old
+command : db.user_data.find({age:{$gt:25}})
+
+//Users who are less than 50 years old and live in United State
+command : db.user_data.find({age:{$gt:25},native:"United States"})
+
+//Total number of users who want to relocate to France (count only)
+command : db.user_data.find({relocate_to:"France"}).count()
+
+//Total number of users who are from USA and want to relocate to russia, sort them by age in ascending order
+command : db.user_data.find({native:"United Stated",relocate_to:Russia"}).sort({age:1})
+
+//get all users, sort them by total number of family member ASC and age DESC order
+command : db.user_data.find().sort({family_members:1,age:-1})
