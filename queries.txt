@@ -1,4 +1,4 @@
-// created a collect by file name "user_data"
+// created a collection by file name "user_data"
 command - db.createCollection('user_data')
 
 // inserted the data in the collection user_Data
